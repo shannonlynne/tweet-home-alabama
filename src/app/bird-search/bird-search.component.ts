@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Bird } from '../models/bird';
-import { BirdTraits } from '../models/bird-add';
+import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
 import { ActivatedRoute, Router } from '@angular/router';
 

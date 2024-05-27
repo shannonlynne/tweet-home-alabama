@@ -1,4 +1,4 @@
-export class BirdTraits {
+export class BirdAdd {
     name: string = "";
     imageUrl: string = "";
     info: string = "";

@@ -2,44 +2,42 @@
 
 <h3>Find a bird</h3>
 <form [formGroup]="birdSearchForm" (ngSubmit)="onSubmit()">
-
-    <div class="row mb-3">
-        <div class="col">
-            <label class="form-label">Main Bird Color</label>
-            <input class="form-control" type="text" formControlName="color">
-            <small class="text-danger" *ngIf="birdSearchForm.get('color')?.invalid && birdSearchForm.get('color')?.touched">
-                Main color is required.
-            </small>
-        </div>
-
-        <div class="col">
-            <label class="form-label">Secondary Bird Color</label>
-            <input class="form-control" type="text" formControlName="secondaryColor">
-            <small class="text-danger" *ngIf="birdSearchForm.get('secondaryColor')?.invalid && birdSearchForm.get('secondaryColor')?.touched">
-                Secondary Color is required.
-            </small>
-        </div>
+    <div>
+        <label class="form-label">Main Bird Color</label>
+        <input class="form-control" type="text" formControlName="color">
+        <small *ngIf="birdSearchForm.get('color')?.invalid && birdSearchForm.get('color')?.touched">
+            Main color is required.
+        </small>
     </div>
-    <div class="mb-3">
+    <div>
+        <label class="form-label">Secondary Bird Color</label>
+        <input class="form-control" type="text" formControlName="secondaryColor">
+        <small *ngIf="birdSearchForm.get('secondaryColor')?.invalid && birdSearchForm.get('secondaryColor')?.touched">
+            Secondary Color is required.
+        </small>
+    </div>
+    <div>
         <label class="form-label">Size</label>
         <input class="form-control" type="text" formControlName="size">
-        <small class="text-danger" *ngIf="birdSearchForm.get('size')?.invalid && birdSearchForm.get('size')?.touched">
+        <small *ngIf="birdSearchForm.get('size')?.invalid && birdSearchForm.get('size')?.touched">
             Size is Required
         </small>
     </div>
-    <div class="mb-3">
+    <div>
         <label class="form-label">Shape</label>
         <input class="form-control" type="text" formControlName="shape">
-        <small class="text-danger" *ngIf="birdSearchForm.get('shape')?.invalid && birdSearchForm.get('shape')?.touched">
+        <small *ngIf="birdSearchForm.get('shape')?.invalid && birdSearchForm.get('shape')?.touched">
             Shape is Required
         </small>
     </div>
-    <div class="mb-3">
+    <div>
         <label class="form-label">Habitat</label>
         <input class="form-control" type="text" formControlName="habitat">
-        <small class="text-danger" *ngIf="birdSearchForm.get('habitat')?.invalid && birdSearchForm.get('habitat')?.touched">
+        <small *ngIf="birdSearchForm.get('habitat')?.invalid && birdSearchForm.get('habitat')?.touched">
             Habitat is Required
         </small>
     </div>
-    <button mat-flat-button color="primary" type="submit" [disabled]="birdSearchForm.invalid">Submit</button>
+    <button mat-flat-button color="primary" type="submit" [disabled]="birdSearchForm.invalid">Search</button>
 </form>
+
+

@@ -1,1 +1,42 @@
-<p>bird-add works!</p>
+<app-home></app-home>
+
+<h3>Add a bird</h3>
+<form [formGroup]="birdAddForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Main Bird Color</label>
+        <input class="form-control" type="text" formControlName="color">
+        <small *ngIf="birdAddForm.get('color')?.invalid && birdAddForm.get('color')?.touched">
+            Main color is required.
+        </small>
+    </div>
+    <div>
+        <label class="form-label">Secondary Bird Color</label>
+        <input class="form-control" type="text" formControlName="secondaryColor">
+        <small *ngIf="birdAddForm.get('secondaryColor')?.invalid && birdAddForm.get('secondaryColor')?.touched">
+            Secondary Color is required.
+        </small>
+    </div>
+    <div>
+        <label class="form-label">Size</label>
+        <input class="form-control" type="text" formControlName="size">
+        <small *ngIf="birdAddForm.get('size')?.invalid && birdAddForm.get('size')?.touched">
+            Size is Required
+        </small>
+    </div>
+    <div>
+        <label class="form-label">Shape</label>
+        <input class="form-control" type="text" formControlName="shape">
+        <small *ngIf="birdAddForm.get('shape')?.invalid && birdAddForm.get('shape')?.touched">
+            Shape is Required
+        </small>
+    </div>
+    <div>
+        <label class="form-label">Habitat</label>
+        <input class="form-control" type="text" formControlName="habitat">
+        <small *ngIf="birdAddForm.get('habitat')?.invalid && birdAddForm.get('habitat')?.touched">
+            Habitat is Required
+        </small>
+    </div>
+    <button mat-flat-button color="primary" type="submit" [disabled]="birdAddForm.invalid">Add</button>
+</form>
+
