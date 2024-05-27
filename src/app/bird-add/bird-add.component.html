@@ -50,6 +50,6 @@
         <input matInput placeholder="woodlands, trees, water" value="" type="text" [(ngModel)]="habitat" required="true">
       </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" type="submit">Add</button>
+    <button mat-flat-button color="primary" (click)="onSubmit()">Add</button>
 </div>
 

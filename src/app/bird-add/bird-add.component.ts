@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Bird } from '../models/bird';
 import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
+import { Bird } from '../models/bird';
 
 @Component({
   selector: 'app-bird-add',
@@ -31,6 +31,11 @@ export class BirdAddComponent {
     }
 
   onSubmit() {
-
+    let birdAdd = new BirdAdd();
+    birdAdd.color = this.color;
+    birdAdd.secondaryColor = this.secondaryColor;
+    birdAdd.size = this.size;
+    birdAdd.shape = this.shape;
+    birdAdd.habitat = this.habitat;
   }
 }
