@@ -7,6 +7,8 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeModule } from './home/home.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BirdModule } from './bird/bird.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { HomeModule } from './home/home.module';
     HomeModule,
     AngularMaterialModule,
     MatButtonModule,
+    BirdModule
   ],
   providers: [
     provideClientHydration(),

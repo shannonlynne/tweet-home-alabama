@@ -1,4 +1,4 @@
-import { BirdTraits } from './bird-traits';
+import { BirdTraits } from './bird-add';
 
 describe('BirdTraits', () => {
   it('should create an instance', () => {

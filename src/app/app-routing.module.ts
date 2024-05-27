@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BirdSearchComponent } from './bird/bird-search/bird-search.component';
-import { BirdAddComponent } from './bird/bird-add/bird-add.component';
+import { BirdSearchComponent } from './bird-search/bird-search.component';
+import { BirdAddComponent } from './bird-add/bird-add.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [

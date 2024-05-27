@@ -11,7 +11,7 @@ import { HomeComponent } from './home.component';
   imports: [
     CommonModule,
     AngularMaterialModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     HomeComponent
