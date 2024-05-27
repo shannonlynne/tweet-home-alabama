@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-bird-search',
@@ -12,6 +13,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BirdSearchComponent {
 
   birdSearchForm: FormGroup = new FormGroup({});
+  displayedColumns: string [] = ["name", "info", "imageUrl"];
+  dataSource = new MatTableDataSource();
 
   constructor(
     private formBuilder: FormBuilder,

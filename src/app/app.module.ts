@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularMaterialModule } from './angular-material.module';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AngularMaterialModule } from './angular-material.module';
 import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule} from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule} from '@angular/material/table';
 import { HomeModule } from './home/home.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BirdModule } from './bird/bird.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,10 @@ import { BirdModule } from './bird/bird.module';
     HomeModule,
     AngularMaterialModule,
     MatButtonModule,
-    BirdModule
+    BirdModule,
+    MatInputModule,
+    MatTableModule,
+    MatFormFieldModule
   ],
   providers: [
     provideClientHydration(),

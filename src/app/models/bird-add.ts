@@ -1,6 +1,6 @@
 export class BirdAdd {
     name: string = "";
-    imageUrl: string = "";
+    url: string = "";
     info: string = "";
     color: string = "";
     secondaryColor: string = "";
