@@ -9,9 +9,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider';
 import { HomeModule } from './home/home.module';
 import { BirdModule } from './bird/bird.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BirdModule,
     MatInputModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDividerModule
   ],
   providers: [
     provideClientHydration(),

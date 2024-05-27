@@ -12,9 +12,13 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class BirdSearchComponent {
 
-  birdSearchForm: FormGroup = new FormGroup({});
-  displayedColumns: string [] = ["name", "info", "imageUrl"];
+  displayedColumns: string [] = ["name", "info", "url"];
   dataSource = new MatTableDataSource();
+  color: string = "";
+  secondaryColor: string = "";
+  size: string = "";
+  shape: string = "";
+  habitat: string = "";
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,13 +27,7 @@ export class BirdSearchComponent {
     private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
-      this.birdSearchForm = this.formBuilder.group({
-        color: ['', Validators.required],
-        secondaryColor: ['', Validators.required],
-        size: ['', Validators.required],
-        shape: ['', Validators.required],
-        habitat: ['', Validators.required],
-      })
+
     }
 
   onSubmit() {

@@ -1,42 +1,55 @@
 <app-home></app-home>
 
 <h3>Add a bird</h3>
-<form [formGroup]="birdAddForm" (ngSubmit)="onSubmit()">
+<div>
     <div>
-        <label>Main Bird Color</label>
-        <input class="form-control" type="text" formControlName="color">
-        <small *ngIf="birdAddForm.get('color')?.invalid && birdAddForm.get('color')?.touched">
-            Main color is required.
-        </small>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Bird name" value="" type="text" [(ngModel)]="name" required="true">
+      </mat-form-field>
     </div>
     <div>
-        <label class="form-label">Secondary Bird Color</label>
-        <input class="form-control" type="text" formControlName="secondaryColor">
-        <small *ngIf="birdAddForm.get('secondaryColor')?.invalid && birdAddForm.get('secondaryColor')?.touched">
-            Secondary Color is required.
-        </small>
+      <mat-form-field>
+        <mat-label>Info</mat-label>
+        <input matInput placeholder="Some info about bird" value="" type="text" [(ngModel)]="info" required="true">
+      </mat-form-field>
     </div>
     <div>
-        <label class="form-label">Size</label>
-        <input class="form-control" type="text" formControlName="size">
-        <small *ngIf="birdAddForm.get('size')?.invalid && birdAddForm.get('size')?.touched">
-            Size is Required
-        </small>
+      <mat-form-field>
+        <mat-label>Image Url</mat-label>
+        <input matInput placeholder="Url" value="" type="text" [(ngModel)]="url" required="true">
+      </mat-form-field>
     </div>
     <div>
-        <label class="form-label">Shape</label>
-        <input class="form-control" type="text" formControlName="shape">
-        <small *ngIf="birdAddForm.get('shape')?.invalid && birdAddForm.get('shape')?.touched">
-            Shape is Required
-        </small>
+      <mat-form-field>
+        <mat-label>Color</mat-label>
+        <input matInput placeholder="Main bird color" value="" type="text" [(ngModel)]="color" required="true">
+      </mat-form-field>
     </div>
     <div>
-        <label class="form-label">Habitat</label>
-        <input class="form-control" type="text" formControlName="habitat">
-        <small *ngIf="birdAddForm.get('habitat')?.invalid && birdAddForm.get('habitat')?.touched">
-            Habitat is Required
-        </small>
+      <mat-form-field>
+        <mat-label>Secondary Color</mat-label>
+        <input matInput placeholder="Another color you see" value="" type="text" [(ngModel)]="secondaryColor" required="true">
+      </mat-form-field>
     </div>
-    <button mat-flat-button color="primary" type="submit" [disabled]="birdAddForm.invalid">Add</button>
-</form>
+    <div>
+      <mat-form-field>
+        <mat-label>Size</mat-label>
+        <input matInput placeholder="small, medium or large" value="" type="text" [(ngModel)]="size" required="true">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Shape</mat-label>
+        <input matInput placeholder="tall, short, squat or long" value="" type="text" [(ngModel)]="shape" required="true">
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Habitat</mat-label>
+        <input matInput placeholder="woodlands, trees, water" value="" type="text" [(ngModel)]="habitat" required="true">
+      </mat-form-field>
+    </div>
+    <button mat-flat-button color="primary" type="submit">Add</button>
+</div>
 

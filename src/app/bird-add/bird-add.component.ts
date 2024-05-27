@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Bird } from '../models/bird';
 import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-bird-add',
@@ -12,22 +12,22 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class BirdAddComponent {
 
-  birdAddForm: FormGroup = new FormGroup({});
+  dataSource = new MatTableDataSource();
+  name: string = "";
+  info: string = "";
+  url: string = "";
+  color: string = "";
+  secondaryColor: string = "";
+  size: string = "";
+  shape: string = "";
+  habitat: string = "";
 
   constructor(
-    private formBuilder: FormBuilder,
     private birdService: BirdService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {}
 
     ngOnInit(): void {
-      this.birdAddForm = this.formBuilder.group({
-        color: ['', Validators.required],
-        secondaryColor: ['', Validators.required],
-        size: ['', Validators.required],
-        shape: ['', Validators.required],
-        habitat: ['', Validators.required],
-      })
     }
 
   onSubmit() {

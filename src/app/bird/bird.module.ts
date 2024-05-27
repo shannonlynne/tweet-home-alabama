@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BirdSearchComponent } from '../bird-search/bird-search.component';
 import { BirdAddComponent } from '../bird-add/bird-add.component';
 import { HomeModule } from '../home/home.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from '../angular-material.module';
 
@@ -17,7 +17,6 @@ import { AngularMaterialModule } from '../angular-material.module';
     HomeModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule,
     AngularMaterialModule
   ]
 })
