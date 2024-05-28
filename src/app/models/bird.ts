@@ -1,5 +1,5 @@
 export class Bird {
     name: string = "";
-    url: string = "";
+    image: string = "";
     info: string = "";
 }
