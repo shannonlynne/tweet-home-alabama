@@ -20,8 +20,6 @@ export class BirdSearchComponent {
 
   constructor(private birdService: BirdService) {}
 
-    // ngOnInit(): void {}
-  
   onSubmit() {
     let birdSearch = new BirdSearch();
     birdSearch.color = this.color;

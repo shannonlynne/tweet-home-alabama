@@ -23,9 +23,6 @@ export class BirdAddComponent {
     private birdService: BirdService,
     private snackBar: MatSnackBar) {}
 
-    // ngOnInit(): void {
-    // }
-
   onSubmit() {
     let birdAdd = new BirdAdd();
     birdAdd.name = this.name;
@@ -36,6 +33,7 @@ export class BirdAddComponent {
     birdAdd.size = this.size;
     birdAdd.shape = this.shape;
     birdAdd.habitat = this.habitat;
+    birdAdd.url = this.url;
 
     this.birdService.addBird(birdAdd).subscribe(() => {
       this.snackBar.open('Bird saved successfully!', 'X', {
