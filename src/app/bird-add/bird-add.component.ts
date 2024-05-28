@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
-import { MatSelectChange } from '@angular/material/select';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -29,6 +28,9 @@ export class BirdAddComponent {
 
   onSubmit() {
     let birdAdd = new BirdAdd();
+    birdAdd.name = this.name;
+    birdAdd.info = this.info;
+    birdAdd.habitat = this.habitat
     birdAdd.color = this.color;
     birdAdd.secondaryColor = this.secondaryColor;
     birdAdd.size = this.size;
