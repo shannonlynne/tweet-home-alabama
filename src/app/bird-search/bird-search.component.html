@@ -5,27 +5,27 @@
     <div>
     <mat-form-field>
         <mat-label>Color</mat-label>
-        <input matInput placeholder="Main bird color" value="" type="text" [(ngModel)]="color" required="true">
+        <input matInput placeholder="Main bird color" value="" type="text" [(ngModel)]="color" required="true" (ngModelChange)="onInputChange()">
      </mat-form-field>
     <mat-form-field>
         <mat-label>Secondary Color</mat-label>
-        <input matInput placeholder="Another color you see" value="" type="text" [(ngModel)]="secondaryColor" required="true">
+        <input matInput placeholder="Another color you see" value="" type="text" [(ngModel)]="secondaryColor" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Size</mat-label>
-        <input matInput placeholder="small, medium or large" value="" type="text" [(ngModel)]="size" required="true">
+        <input matInput placeholder="small, medium or large" value="" type="text" [(ngModel)]="size" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Shape</mat-label>
-        <input matInput placeholder="tall, short, squat or long" value="" type="text" [(ngModel)]="shape" required="true">
+        <input matInput placeholder="tall, short, squat or long" value="" type="text" [(ngModel)]="shape" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
       <mat-form-field>
         <mat-label>Habitat</mat-label>
-        <input matInput placeholder="woodlands, trees, water" value="" type="text" [(ngModel)]="habitat" required="true">
+        <input matInput placeholder="woodlands, trees, water" value="" type="text" [(ngModel)]="habitat" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
     </div>
 
-    <button mat-flat-button color="primary" (click)="onSubmit()">Search</button>
+    <button mat-flat-button color="primary" [disabled]="true" [disabled]="disableSearchButton" (click)="onSubmit()">Search</button>
 </div>
     <br><br><br>
     <mat-divider></mat-divider>

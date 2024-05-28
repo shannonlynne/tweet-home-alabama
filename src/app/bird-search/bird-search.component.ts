@@ -19,9 +19,16 @@ export class BirdSearchComponent {
   shape: string = "";
   habitat: string = "";
 
+  disableSearchButton: boolean = true;
+
   constructor(
     private birdService: BirdService,
     private snackBar: MatSnackBar) {}
+
+    onInputChange() {
+      this.disableSearchButton = this.color === '' || this.secondaryColor === '' || this.size === '' 
+      || this.shape === '' || this.habitat === '' 
+    }
 
   onSubmit() {
     let birdSearch = new BirdSearch();

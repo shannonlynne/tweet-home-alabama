@@ -19,9 +19,17 @@ export class BirdAddComponent {
   shape: string = "";
   habitat: string = "";
 
+  disableAddButton: boolean = true;
+
   constructor(
     private birdService: BirdService,
     private snackBar: MatSnackBar) {}
+
+  onInputChange() {
+    this.disableAddButton = this.name === '' || this.info === '' || this.url === '' 
+    || this.color === '' || this.secondaryColor === '' || this.size === '' || this.shape === '' 
+    || this.habitat === '' 
+  }
 
   onSubmit() {
     let birdAdd = new BirdAdd();
