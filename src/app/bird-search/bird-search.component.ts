@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { BirdService } from '../bird/bird.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { Bird } from '../models/bird';
 import { BirdSearch } from '../models/bird-search';
 
 @Component({
@@ -20,14 +18,10 @@ export class BirdSearchComponent {
   shape: string = "";
   habitat: string = "";
 
-  constructor(
-    private birdService: BirdService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {}
+  constructor(private birdService: BirdService) {}
 
-    ngOnInit(): void {
-  }
-
+    // ngOnInit(): void {}
+  
   onSubmit() {
     let birdSearch = new BirdSearch();
     birdSearch.color = this.color;
@@ -35,5 +29,10 @@ export class BirdSearchComponent {
     birdSearch.size = this.size;
     birdSearch.shape = this.shape;
     birdSearch.habitat = this.habitat;
+
+    this.birdService.getMatchingBirds(birdSearch).subscribe(birdList => {
+      this.dataSource = new MatTableDataSource<any>();
+      this.dataSource.data = birdList;  
+    });
   }
 }

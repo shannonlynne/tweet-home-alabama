@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { BirdAdd } from '../models/bird-add';
 import { BirdService } from '../bird/bird.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MatTableDataSource } from '@angular/material/table';
-import { Bird } from '../models/bird';
+import { MatSelectChange } from '@angular/material/select';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bird-add',
@@ -12,7 +11,6 @@ import { Bird } from '../models/bird';
 })
 export class BirdAddComponent {
 
-  dataSource = new MatTableDataSource();
   name: string = "";
   info: string = "";
   url: string = "";
@@ -24,11 +22,10 @@ export class BirdAddComponent {
 
   constructor(
     private birdService: BirdService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {}
+    private snackBar: MatSnackBar) {}
 
-    ngOnInit(): void {
-    }
+    // ngOnInit(): void {
+    // }
 
   onSubmit() {
     let birdAdd = new BirdAdd();
@@ -37,5 +34,12 @@ export class BirdAddComponent {
     birdAdd.size = this.size;
     birdAdd.shape = this.shape;
     birdAdd.habitat = this.habitat;
-  }
+
+    this.birdService.addBird(birdAdd).subscribe(() => {
+      this.snackBar.open('Bird saved successfully!', 'X', {
+        panelClass: 'noif-error',
+        duration: 4000
+      });
+    });
+  } 
 }
