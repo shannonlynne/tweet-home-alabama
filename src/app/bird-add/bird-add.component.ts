@@ -35,11 +35,15 @@ export class BirdAddComponent {
     birdAdd.habitat = this.habitat;
     birdAdd.url = this.url;
 
-    this.birdService.addBird(birdAdd).subscribe(() => {
-      this.snackBar.open('Bird saved successfully!', 'X', {
-        panelClass: 'noif-error',
+    this.birdService.addBird(birdAdd).subscribe(result => {
+      this.snackBar.open(result, 'X', {
+        duration: 4000
+      });
+    }, 
+      () => {
+      this.snackBar.open('Error occured while saving bird.', 'X', {
         duration: 4000
       });
     });
-  } 
-}
+  }
+} 
