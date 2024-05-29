@@ -14,7 +14,8 @@ import { HomeComponent } from './home.component';
     RouterModule,
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
+    AngularMaterialModule
   ]
 })
 export class HomeModule { }

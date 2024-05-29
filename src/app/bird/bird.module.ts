@@ -5,8 +5,6 @@ import { BirdAddComponent } from '../bird-add/bird-add.component';
 import { HomeModule } from '../home/home.module';
 import { FormsModule} from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AngularMaterialModule } from '../angular-material.module';
-
 @NgModule({
   declarations: [
     BirdSearchComponent,
@@ -17,7 +15,6 @@ import { AngularMaterialModule } from '../angular-material.module';
     HomeModule,
     RouterModule,
     FormsModule,
-    AngularMaterialModule
   ]
 })
 export class BirdModule { }
