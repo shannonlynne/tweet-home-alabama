@@ -1,10 +1,9 @@
 export class BirdAdd {
     name: string = "";
-    url: string = "";
-    info: string = "";
-    color: string = "";
-    secondaryColor: string = "";
+    imageUrl: string = "";
+    shortDescription: string = "";
     size: string = "";
     shape: string = "";
-    habitat: string = "";
+    habitats: string [] = [];
+    colors: string [] = [];
 }

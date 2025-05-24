@@ -16,13 +16,16 @@ export class BirdService {
   constructor(private http: HttpClient) {}
 
   getMatchingBirds(birdSearch: BirdSearch) : Observable<Bird[]> {
-    return this.http.get<Bird[]>(`${this.apiUrl}/getbirds?color=${birdSearch.color}&secondarycolor=${birdSearch.secondaryColor}&shape=${birdSearch.shape}&size=${birdSearch.size}&habitat=${birdSearch.habitat}`, {headers: this.headers});
+    return this.http.get<Bird[]>(`${this.apiUrl}/getbirds?color=${birdSearch.colors}&shape=${birdSearch.shape}&size=${birdSearch.size}&habitats=${birdSearch.habitats}`, {headers: this.headers});
   }
 
   addBird(birdAdd: BirdAdd) : Observable<any> {
-    return this.http.post<void>(this.apiUrl + "/addbird", JSON.stringify(birdAdd), {headers: this.headers});
+      return this.http.post(this.apiUrl + '/addbird', birdAdd, {
+    headers: this.headers, responseType: 'text'
+  });
   }
-
-  //implement 
+  //implement
   //implement delete
 }
+
+

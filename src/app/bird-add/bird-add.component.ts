@@ -11,13 +11,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class BirdAddComponent {
 
   name: string = "";
-  info: string = "";
-  url: string = "";
-  color: string = "";
-  secondaryColor: string = "";
+  shortDescription: string = "";
+  imageUrl: string = "";
+  colors: string = "";
   size: string = "";
   shape: string = "";
-  habitat: string = "";
+  habitats: string = "";
 
   disableAddButton: boolean = true;
 
@@ -26,32 +25,38 @@ export class BirdAddComponent {
     private snackBar: MatSnackBar) {}
 
   onInputChange() {
-    this.disableAddButton = this.name === '' || this.info === '' || this.url === '' 
-    || this.color === '' || this.secondaryColor === '' || this.size === '' || this.shape === '' 
-    || this.habitat === '' 
+    this.disableAddButton =
+      this.name === '' ||
+      this.shortDescription === '' ||
+      this.imageUrl === '' ||
+      !this.colors ||
+      this.size === '' ||
+      this.shape === '' ||
+      !this.habitats;
   }
 
   onSubmit() {
-    let birdAdd = new BirdAdd();
-    birdAdd.name = this.name;
-    birdAdd.info = this.info;
-    birdAdd.habitat = this.habitat
-    birdAdd.color = this.color;
-    birdAdd.secondaryColor = this.secondaryColor;
-    birdAdd.size = this.size;
-    birdAdd.shape = this.shape;
-    birdAdd.habitat = this.habitat;
-    birdAdd.url = this.url;
+  let birdAdd = new BirdAdd();
+  birdAdd.name = this.name;
+  birdAdd.shortDescription = this.shortDescription;
+  birdAdd.colors = this.colors.split('\n').map(c => c.trim()).filter(c => c);
+  birdAdd.habitats = this.habitats.split('\n').map(h => h.trim()).filter(h => h);
+  birdAdd.size = this.size;
+  birdAdd.shape = this.shape;
+  birdAdd.imageUrl = this.imageUrl;
 
     this.birdService.addBird(birdAdd).subscribe(result => {
+      console.log('API result:', result);
       this.snackBar.open(result, 'X', {
         duration: 4000
       });
-    }, 
-      () => {
-      this.snackBar.open('Error occured while saving bird.', 'X', {
-        duration: 4000
-      });
-    });
+    },
+    error => {
+      const message = typeof error.error === 'string' && error.status === 400
+        ? error.error // plain text from backend
+        : 'Error occurred while saving bird.';
+
+      this.snackBar.open(message, 'X', { duration: 4000 });
+  });
   }
-} 
+}

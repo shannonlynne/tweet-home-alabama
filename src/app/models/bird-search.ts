@@ -1,7 +1,6 @@
 export class BirdSearch {
-    color: string = "";
-    secondaryColor: string = "";
+    colors: string = "";
     size: string = "";
     shape: string = "";
-    habitat: string = "";
+    habitats: string = "";
 }

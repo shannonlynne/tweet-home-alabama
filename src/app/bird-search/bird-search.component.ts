@@ -13,11 +13,10 @@ export class BirdSearchComponent {
 
   displayedColumns: string [] = ["name", "info", "url"];
   dataSource = new MatTableDataSource();
-  color: string = "";
-  secondaryColor: string = "";
+  colors: string = "";
   size: string = "";
   shape: string = "";
-  habitat: string = "";
+  habitats: string = "";
 
   disableSearchButton: boolean = true;
 
@@ -25,23 +24,35 @@ export class BirdSearchComponent {
     private birdService: BirdService,
     private snackBar: MatSnackBar) {}
 
-    onInputChange() {
-      this.disableSearchButton = this.color === '' || this.secondaryColor === '' || this.size === '' 
-      || this.shape === '' || this.habitat === '' 
-    }
+onInputChange() {
+  const colorList = this.colors
+    .split('\n')
+    .map(c => c.trim())
+    .filter(c => c.length > 0);
+
+  const habitatList = this.habitats
+    .split('\n')
+    .map(h => h.trim())
+    .filter(h => h.length > 0);
+
+    this.disableSearchButton =
+    colorList.length === 0 ||
+    habitatList.length === 0 ||
+    this.size === '' ||
+    this.shape === '';
+}
 
   onSubmit() {
     let birdSearch = new BirdSearch();
-    birdSearch.color = this.color;
-    birdSearch.secondaryColor = this.secondaryColor;
+    birdSearch.colors = this.colors;
     birdSearch.size = this.size;
     birdSearch.shape = this.shape;
-    birdSearch.habitat = this.habitat;
+    birdSearch.habitats = this.habitats;
 
     this.birdService.getMatchingBirds(birdSearch).subscribe(birdList => {
       this.dataSource = new MatTableDataSource<any>();
-      this.dataSource.data = birdList;  
-    }, 
+      this.dataSource.data = birdList;
+    },
     () => {
       this.snackBar.open('Error occured while retrieving birds.', 'X', {
         duration: 4000

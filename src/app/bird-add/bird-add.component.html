@@ -11,25 +11,13 @@
     <div>
       <mat-form-field>
         <mat-label>Info</mat-label>
-        <input matInput placeholder="Some info about bird" value="" type="text" [(ngModel)]="info" required="true" (ngModelChange)="onInputChange()">
+        <input matInput placeholder="Some info about bird" value="" type="text" [(ngModel)]="shortDescription" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
     </div>
     <div>
       <mat-form-field>
         <mat-label>Image Url</mat-label>
-        <input matInput placeholder="url" value="" type="text" [(ngModel)]="url" required="true" (ngModelChange)="onInputChange()">
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Color</mat-label>
-        <input matInput placeholder="Main bird color" value="" type="text" [(ngModel)]="color" required="true" (ngModelChange)="onInputChange()">
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Secondary Color</mat-label>
-        <input matInput placeholder="Another color you see" value="" type="text" [(ngModel)]="secondaryColor" required="true" (ngModelChange)="onInputChange()">
+        <input matInput placeholder="url" value="" type="text" [(ngModel)]="imageUrl" required="true" (ngModelChange)="onInputChange()">
       </mat-form-field>
     </div>
     <div>
@@ -45,9 +33,27 @@
       </mat-form-field>
     </div>
     <div>
-      <mat-form-field>
-        <mat-label>Habitat</mat-label>
-        <input matInput placeholder="woodlands, trees, water" value="" type="text" [(ngModel)]="habitat" required="true" (ngModelChange)="onInputChange()">
+      <mat-form-field appearance="fill">
+        <mat-label>Colors</mat-label>
+        <textarea
+          matInput
+          placeholder="Enter one color per line"
+          [(ngModel)]="colors"
+          (ngModelChange)="onInputChange()"
+          rows="4"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Habitats</mat-label>
+        <textarea
+          matInput
+          placeholder="Enter one habitat per line"
+          [(ngModel)]="habitats"
+          (ngModelChange)="onInputChange()"
+          rows="4"
+        ></textarea>
       </mat-form-field>
     </div>
     <button mat-flat-button color="primary" [disabled]="disableAddButton" (click)="onSubmit()">Add</button>
