@@ -13,10 +13,10 @@ export class BirdSearchComponent {
 
   displayedColumns: string [] = ["name", "info", "url"];
   dataSource = new MatTableDataSource();
-  colors: string = "";
   size: string = "";
   shape: string = "";
   habitats: string = "";
+  colors: string = "";
 
   disableSearchButton: boolean = true;
 
@@ -25,29 +25,19 @@ export class BirdSearchComponent {
     private snackBar: MatSnackBar) {}
 
 onInputChange() {
-  const colorList = this.colors
-    .split('\n')
-    .map(c => c.trim())
-    .filter(c => c.length > 0);
-
-  const habitatList = this.habitats
-    .split('\n')
-    .map(h => h.trim())
-    .filter(h => h.length > 0);
-
     this.disableSearchButton =
-    colorList.length === 0 ||
-    habitatList.length === 0 ||
+    this.colors.length === 0 ||
+    this.habitats.length === 0 ||
     this.size === '' ||
     this.shape === '';
 }
 
   onSubmit() {
     let birdSearch = new BirdSearch();
-    birdSearch.colors = this.colors;
+    birdSearch.colors = this.colors.split('\n').map(c => c.trim()).filter(c => c);
     birdSearch.size = this.size;
     birdSearch.shape = this.shape;
-    birdSearch.habitats = this.habitats;
+    birdSearch.habitats = this.habitats.split('\n').map(h => h.trim()).filter(h => h);
 
     this.birdService.getMatchingBirds(birdSearch).subscribe(birdList => {
       this.dataSource = new MatTableDataSource<any>();

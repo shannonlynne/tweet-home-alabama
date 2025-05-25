@@ -3,7 +3,7 @@ import { environment } from '../../environments/environment.development';
 import { Bird } from '../models/bird';
 import { BirdSearch } from '../models/bird-search';
 import { BirdAdd } from '../models/bird-add';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,7 +16,15 @@ export class BirdService {
   constructor(private http: HttpClient) {}
 
   getMatchingBirds(birdSearch: BirdSearch) : Observable<Bird[]> {
-    return this.http.get<Bird[]>(`${this.apiUrl}/getbirds?color=${birdSearch.colors}&shape=${birdSearch.shape}&size=${birdSearch.size}&habitats=${birdSearch.habitats}`, {headers: this.headers});
+    let params = new HttpParams()
+    .set('size', birdSearch.size)
+    .set('shape', birdSearch.shape)
+
+    birdSearch.colors.forEach(color => params = params.append('colors', color));
+    birdSearch.habitats.forEach(habitat => params = params.append('habitats', habitat));
+
+    return this.http.get<Bird[]>(this.apiUrl + '/search',
+      {params, headers: this.headers});
   }
 
   addBird(birdAdd: BirdAdd) : Observable<any> {
@@ -24,8 +32,6 @@ export class BirdService {
     headers: this.headers, responseType: 'text'
   });
   }
-  //implement
-  //implement delete
 }
 
 

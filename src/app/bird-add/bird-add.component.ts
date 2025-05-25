@@ -53,7 +53,7 @@ export class BirdAddComponent {
     },
     error => {
       const message = typeof error.error === 'string' && error.status === 400
-        ? error.error // plain text from backend
+        ? error.error
         : 'Error occurred while saving bird.';
 
       this.snackBar.open(message, 'X', { duration: 4000 });
